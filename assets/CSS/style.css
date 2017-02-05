@@ -1,0 +1,73 @@
+
+  background: url("../IMAGES/hangman-image.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+
+
+*{
+	box-sizing: border-box;
+	max-width: 980px;
+	width: 100%;
+
+}
+
+
+header{
+	max-width: 960px;
+	width: 100%;
+	background: purple;
+	color: orange;
+	text-align: center;
+	font-weight: 700;
+
+}
+
+#row1 {
+	max-width: 960px;
+width: 100%;
+
+/*background-image: url("https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTm5d4d8XXnjCLLa9fHWbfiKVs93BZq5oerLSt_OT_eqey_9DYiZA");*/
+/*background-image: url("../IMAGES/hangman-image.png");*/
+opacity: 0.8;
+
+}
+
+#mainDiv{
+
+color: red;
+font-weight: 700;
+font-size: 200%;
+text-align: center;
+margin: 0 auto;
+
+
+}
+
+#footDiv{
+max-width: 980px;
+width: 100%;
+background: black;
+color: purple;
+font-weight: 700;
+text-align: center;
+}
+
+p{
+	font-size: 10px;
+	color: red;
+}
+
+#done{
+	font-size: 18px;
+	text-decoration: line-through;
+	color: lightgrey;
+}
+
+#notdone {
+	font-size: 16px;
+	text-decoration: underline;
+	color: black;
+}
