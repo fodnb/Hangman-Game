@@ -51,7 +51,7 @@ function startGame() {
     console.log(typeof + answerArray);
     document.getElementById('misses').innerHTML = "ALPHABET GRAVEYARD";
     document.getElementById('tried').innerHTML = "You have " + guessesRemaining + " guesses!"
-    document.getElementById('graveyard').innerHTML = missArray;
+    document.getElementById('graveyard').innerHTML = missArray.join(" ");
 }
 
 
@@ -104,7 +104,7 @@ function checkLetters() {
             document.getElementById('start').innerHTML = "WRONG!";
             missArray.push(userguess);
             document.getElementById('misses').innerHTML = "THESE ARE YOUR MISSED OPPORTUNITY:";
-            document.getElementById('graveyard').innerHTML = missArray;
+            document.getElementById('graveyard').innerHTML = missArray.join(" ");
             guessesRemaining--;
             document.getElementById('tried').innerHTML = "You have " + guessesRemaining + " guesses left!";
             console.log(missArray);
