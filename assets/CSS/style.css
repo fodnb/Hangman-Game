@@ -1,16 +1,22 @@
-
+/*
   background: url("../IMAGES/hangman-image.jpg") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+*/
 
+body {
+	background: limegreen;
+}
 
 
 *{
-	box-sizing: border-box;
+	
+	box-sizing: border-box;	
 	max-width: 980px;
 	width: 100%;
+	
 
 }
 
@@ -47,12 +53,17 @@ margin: 0 auto;
 }
 
 #footDiv{
+	
 max-width: 980px;
 width: 100%;
-background: black;
+background: red;
 color: purple;
 font-weight: 700;
+height: 10%;
 text-align: center;
+padding-top: 10px;
+position: fixed;
+bottom: 0;
 }
 
 p{
