@@ -164,7 +164,7 @@ function midScreenLoss(){
     var newP = $("<p>");
     newDiv.attr("class", "newDiv");
     newP.attr("id", "pWin")
-    newImage.attr("src", "assets/IMAGES/hangman-image.jpg");
+    newImage.attr("src", "assets/images/hangman-image.jpg");
     newP.html("MUAH HA HA!");
     newDiv.append(newP);
     newDiv.append(newImage);
@@ -207,7 +207,7 @@ document.getElementById('start').innerHTML = "Choose Your Letters Wisely!"
 
 document.onkeypress = function(event) {
         guess = event.key;
-        userguess = guess.toUpperCase();
+        userguess = guess.toUpperCase();    
         console.log(userguess);
         checkArray(night);
 
