@@ -1,6 +1,6 @@
 var night = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ' '];
 
-var word = ['pumpkin', 'candy', 'skeleton', 'ghoul', 'goblin', 'costume', 'ghost', 'halloween', 'vampire', 'zombie','guilotene', 'trick', 'treat'];
+var word = ['PUMPKIN', 'CANDY', 'SKELETON', 'GHOUL', 'GOBLIN', 'COSTUME', 'GHOST', 'HALLOWEEN', 'VAMPIRE', 'ZOMBIE','GUILOTENE', 'TRICK', 'TREAT'];
 var win = 0;
 var loss = 0;
 
@@ -23,7 +23,8 @@ var count = 0;
 var differentNumbers;
 
 function startGame() {
-
+    // night = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ' '];
+    night = ['A', 'B', 'C', 'D', 'E', 'F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
     answerArray = [];
     missArray = [];
     hitArray = [];
@@ -52,6 +53,7 @@ function startGame() {
     document.getElementById('misses').innerHTML = "ALPHABET GRAVEYARD";
     document.getElementById('tried').innerHTML = "You have " + guessesRemaining + " guesses!"
     document.getElementById('graveyard').innerHTML = missArray.join(" ");
+     document.getElementById('wins').innerHTML = "You've Won: " + win + " times!";
 }
 
 
@@ -85,8 +87,8 @@ function lettersinword() {
 function checkLetters() {
 
     for (var i = 0; i < chosenWord.length; i++) {
-        if (userguess === chosenWord[i]) {
-            answerArray[i] = userguess;
+        if (userguess.toUpperCase() === chosenWord[i]) {
+            answerArray[i] = userguess.toUpperCase();
           
             document.getElementById("demo").innerHTML = answerArray.join("  ");
             correct++;
@@ -102,7 +104,7 @@ function checkLetters() {
             document.getElementById('start').innerHTML = "You got that one right!";
         } else if (wrong === chosenWord.length) {
             document.getElementById('start').innerHTML = "WRONG!";
-            missArray.push(userguess);
+            missArray.push(userguess.toUpperCase());
             document.getElementById('misses').innerHTML = "THESE ARE YOUR MISSED OPPORTUNITY:";
             document.getElementById('graveyard').innerHTML = missArray.join(" ");
             guessesRemaining--;
@@ -112,7 +114,7 @@ function checkLetters() {
     }
     if (correct >= 1) {
 
-        hitArray.push(userguess);
+        hitArray.push(userguess.toUpperCase());
     }
     wrong = 0;
     correct = 0;
@@ -127,13 +129,14 @@ function handlerGuess() {
         win++;
         guessesRemaining = 6;
         document.getElementById('wins').innerHTML = "You've Won: " + win + " times!";
-        startGame();
+        // startGame();
+        midScreenWin();
     } else if (guessesRemaining === 0) {
 
         document.getElementById('start').innerHTML = "You LOSE";
         loss++;
         document.getElementById('losses').innerHTML = "You've Lost: " + loss + " times!";
-        startGame();
+        midScreenLoss();
     }
 }
 
@@ -146,8 +149,52 @@ function checkArray(array) {
     }
 }
 
+function midScreenLoss(){
+    night = [];
+    loss = loss;
+    console.log(win);
+    console.log(night); 
+    $("#demo").empty();
+    $("#misses").empty();
+    $("#tried").empty();
+    $("#graveyard").empty();
+    $("#bigDiv").empty();
+    var newDiv = $("<div>");
+    var newImage = $("<img>");
+    var newP = $("<p>");
+    newDiv.attr("class", "newDiv");
+    newP.attr("id", "pWin")
+    newImage.attr("src", "assets/IMAGES/hangman-image.jpg");
+    newP.html("MUAH HA HA!");
+    newDiv.append(newP);
+    newDiv.append(newImage);
+    $("#wins").append(newDiv);
+    setTimeout(startGame, 3000);
+
+}
+
+function midScreenWin(){
+     night = [];
+    win = win;
+    console.log(win);
+    console.log(night);
+    $("#demo").empty();
+    $("#misses").empty();
+    $("#tried").empty();
+    $("#graveyard").empty();
 
 
+    var newDiv = $("<div>");
+    var newImage = $("<img>");
+    var newP = $("<p>");
+    newImage.attr("src", "assets/IMAGES/halloweenimg3.jpg");
+    newP.html("MUAH HA HA!");
+    newDiv.append(newP);
+    newDiv.append(newImage);
+    $("#wins").append(newDiv);
+    setTimeout(startGame, 3000);
+
+}
 
 
 
@@ -160,7 +207,7 @@ document.getElementById('start').innerHTML = "Choose Your Letters Wisely!"
 
 document.onkeypress = function(event) {
         guess = event.key;
-        userguess = guess.toLowerCase();
+        userguess = guess.toUpperCase();
         console.log(userguess);
         checkArray(night);
 
