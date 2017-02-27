@@ -224,10 +224,6 @@ document.onkeypress = function(event) {
             if (guessguessed > 0) {
                 guessguessed = 0;
             } else {
-
-                // guess = event.key;
-                // userguess = guess.toLowerCase();
-                // console.log(userguess);
                 checkLetters();
                 console.log(answerArray);
                 console.log()
